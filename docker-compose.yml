@@ -1,0 +1,37 @@
+services:
+  mysql57:
+    image: mysql:5.7.44
+    container_name: mysql57
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: "%Fermin1234SQL"
+      MYSQL_DATABASE: mydb
+    ports:
+      - "127.0.0.1:3307:3306"
+    volumes:
+      - mysql57data:/var/lib/mysql
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -uroot -proot1234 --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  app:
+    image: azul/zulu-openjdk:8
+    container_name: java8-app
+    working_dir: /app
+    volumes:
+      - ./:/app
+    environment:
+      DB_URL: jdbc:mysql://mysql57:3306/mydb?useSSL=false&serverTimezone=UTC
+      DB_USER: root
+      DB_PASSWORD: "%Fermin1234SQL"
+    command: java -jar target/myapp.jar
+    depends_on:
+      mysql57:
+        condition: service_healthy
+
+volumes:
+  mysql57data:
+    external: true
