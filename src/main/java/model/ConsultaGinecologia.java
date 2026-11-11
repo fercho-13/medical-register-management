@@ -26,3 +26,4 @@ public class ConsultaGinecologia extends Consulta {
     public String getDiagnostico() { return diagnostico; }
     public void setDiagnostico(String diagnostico) { this.diagnostico = diagnostico; }
 }
+

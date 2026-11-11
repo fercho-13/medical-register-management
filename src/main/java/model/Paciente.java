@@ -53,3 +53,4 @@ public class Paciente extends Persona {
     public String getAntecedentesClinicos() { return antecedentesClinicos; }
     public void setAntecedentesClinicos(String antecedentesClinicos) { this.antecedentesClinicos = antecedentesClinicos; }
 }
+

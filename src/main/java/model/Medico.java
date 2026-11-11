@@ -15,3 +15,4 @@ public class Medico extends Persona {
     public String getMatricula() { return matricula; }
     public void setMatricula(String matricula) { this.matricula = matricula; }
 }
+
