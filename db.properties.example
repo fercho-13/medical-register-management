@@ -1,0 +1,4 @@
+# Copiar a db.properties (junto al .jar). Las variables de entorno DB_URL/DB_USER/DB_PASSWORD tienen prioridad.
+db.url=jdbc:mysql://192.168.0.10:3306/lalcec_db?useSSL=false&serverTimezone=America/Argentina/Buenos_Aires&useUnicode=true&characterEncoding=UTF-8
+db.user=lalcec
+db.password=CAMBIAR
